@@ -45,7 +45,16 @@ def insert_student():
     gender = input("性別: ")
     dept = input("系所: ")
     email = input("Email: ")
-    phone = input("電話: ")
+    
+    # --- 電話驗證開始 ---
+    while True:
+        phone = input("電話 (必填): ")
+        if phone.strip():  # .strip() 去掉空格後，如果有內容
+            break          # 跳出迴圈，繼續輸入地址
+        else:
+            print("錯誤：電話欄位不能為空，請重新輸入！")
+    # --- 電話驗證結束 ---
+    
     addr = input("地址: ")
     
     dbCursor = dbConn.cursor()
